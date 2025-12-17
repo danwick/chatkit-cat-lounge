@@ -18,9 +18,7 @@ fi
 echo "Installing backend dependencies..."
 cd backend
 uv sync --no-dev
-cd ..
 
-# Run the backend
+# Run the backend using uv run
 echo "Starting server on port 8080..."
-cd backend
-exec .venv/bin/python -m uvicorn app.main:app --host 0.0.0.0 --port 8080
+exec uv run uvicorn app.main:app --host 0.0.0.0 --port 8080
